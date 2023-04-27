@@ -12,6 +12,10 @@ app.get('/', (req, res) =>{
     res.render("buscacep")
 })
 
+app.get('/home', (req, res) =>{
+    res.send("Página home")
+})
+
 app.listen(port, () => {
     console.log("Conectado a porta " + port)
 })
