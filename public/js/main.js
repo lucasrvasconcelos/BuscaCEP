@@ -11,17 +11,22 @@ let endereco = {
     ibge: document.querySelector("#ibge")
 }
 
-cep.addEventListener("blur", () => {
 
+
+cep.addEventListener("blur", () => {
     const respcepformat = cep.value.replace(/[^0-9]/gi, "");
 
+    formatCEP(respcepformat)
+})  
+
+function formatCEP(respcepformat){
     if (respcepformat.length == 8) {
         setEndereco(respcepformat)
     } else {
         showMenssage("CEP INVÁLIDO")
         resetInfo()
     }
-})  
+}
 
 function setEndereco(respcepformat){
 
