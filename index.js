@@ -7,9 +7,10 @@ app.use(express.static("public"))
 app.use(express.static("views"))
 app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.set('views', './views/');
 
 app.get('/', (req, res) =>{
-    res.render("buscacep")
+    res.render("buscacep.handlebars")
 })
 
 app.get('/home', (req, res) =>{
