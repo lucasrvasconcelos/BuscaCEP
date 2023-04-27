@@ -8,7 +8,7 @@
 body{
     width: 100vw;
     height: 100vh;
-
+    padding: 10px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -30,6 +30,21 @@ body form label{
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
+
+}
+
+@media (max-width: 496px)
+{    
+    body form {
+        width: 320px;
+    }
+
+    body form label{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
 }
 
 body form input {
@@ -56,10 +71,14 @@ body button#reset {
 body button#reset:hover{
     background-color:rgb(0, 0, 0);
     color: white;
+    
 }
 
 h3 {
     text-align: center;
+    text-transform: uppercase;
+    width: 100%;
     padding: 4px;
-    background-color: white;
+    background-color: transparent;
+    border: 0.5px solid black;
 }
