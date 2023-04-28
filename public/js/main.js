@@ -63,6 +63,7 @@ function setEndereco(respcepformat){
                     setNewEndereco(dados)
 
                 } else{
+                    cep.focus()
                     showMenssage("CEP INVÁLIDO")
                     resetInfo()
                 }
