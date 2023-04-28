@@ -89,7 +89,7 @@ body #outputmenssage{
    
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -109,7 +109,7 @@ body #outputmenssage #menssage{
     width: 320px;
     padding: 10px;
     z-index: 100;
-    transform: translateY(-20px);
+    margin-top: 30px;
 }
 
 body #outputmenssage #menssage span {
