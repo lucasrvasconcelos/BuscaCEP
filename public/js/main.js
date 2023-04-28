@@ -1,4 +1,6 @@
 const cep = document.querySelector("#cep")
+const reset = document.querySelector("#reset")
+const form = document.querySelector("form")
 
 let endereco = {
     rescep: document.querySelector("#rescep"),
@@ -11,18 +13,26 @@ let endereco = {
     ibge: document.querySelector("#ibge")
 }
 
-
+let respcepformat = ""
 
 cep.addEventListener("blur", () => {
-    const respcepformat = cep.value.replace(/[^0-9]/gi, "");
-
+    respcepformat = cep.value.replace(/[^0-9]/gi, "");
     formatCEP(respcepformat)
 })  
+
+cep.addEventListener("keypress", (event) => {
+    respcepformat = cep.value.replace(/[^0-9]/gi, "");
+    if(event.keyCode == 13){
+        formatCEP(respcepformat)
+    }
+})
+
 
 function formatCEP(respcepformat){
     if (respcepformat.length == 8) {
         setEndereco(respcepformat)
     } else {
+        cep.focus()
         showMenssage("CEP INVÁLIDO")
         resetInfo()
     }
@@ -38,21 +48,19 @@ function setEndereco(respcepformat){
 
     fetch(url, options)
     .then((resposta) => {
+        showMenssage("Aguarde")
         if(resposta.ok && resposta.status == 200){
+            showMenssage("")
             resposta.json()
             .then((dados) => {
+                
                 if(!dados["erro"]){
                     if(cep.value != endereco.rescep.value){
                         resetInfo()
-                        
-                        // let respcepformat = dados.cep.replace("-", "")
-                        // respcepformat = dados.cep.replace(".", "")
-
                         endereco["rescep"].value = respcepformat
                     }
 
                     setNewEndereco(dados)
-                    showMenssage("Localizado")
 
                 } else{
                     showMenssage("CEP INVÁLIDO")
@@ -60,7 +68,8 @@ function setEndereco(respcepformat){
                 }
             })
         } else {
-            console.log("Error")
+            showMenssage("")
+            showMenssage("Erro ao consulta CEP ao Servidor")
         }
         
     })
@@ -70,14 +79,9 @@ function setEndereco(respcepformat){
     })
 }
 
-
-
-const reset = document.querySelector("#reset")
-
 reset.addEventListener("click", (event) => {
 
     resetInfo()
-    showMenssage("Digite o CEP")
 
     event.preventDefault()
 })
@@ -95,12 +99,26 @@ function resetInfo(difere){
     endereco["ibge"].value = ''
 }
 
-function showMenssage(msg){
-    let menssage = document.querySelector("h3")
-    menssage.innerHTML = msg
-}
+const btnCloseMenssage = document.querySelector("#btn-close-menssage")
 
-const form = document.querySelector("form")
+btnCloseMenssage.addEventListener("click", () => {
+    showMenssage(msg="")
+})
+
+
+function showMenssage(msg){
+
+    const outputmenssage = document.querySelector("#outputmenssage")
+    
+    if(outputmenssage.classList.contains("show")){
+        outputmenssage.classList.remove("show")
+        outputmenssage.querySelector("span").textContent = ""
+    } else{
+        outputmenssage.querySelector("span").textContent = msg
+        outputmenssage.classList.add("show")
+    }
+
+}
 
 form.addEventListener("load", (e)=> {
     e.preventDefault()
