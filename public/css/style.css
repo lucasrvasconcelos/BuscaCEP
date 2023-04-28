@@ -121,7 +121,7 @@ body #outputmenssage #menssage button{
     width: 40px;
     height: 30px;
     color: white;
-    /* transform: translateX(89px); */
+    transform: translateX(89px);
     border-radius: 5px;
     border: 0.5px solid rgba(0, 0, 0, 0.466);
     background-color: rgb(233, 27, 27);
