@@ -32,9 +32,9 @@ function formatCEP(respcepformat){
     if (respcepformat.length == 8) {
         setEndereco(respcepformat)
     } else if(respcepformat.length == 0) {
-        cep.focus()
-        showMenssage("CAMPO CEP VAZIO!")
-        resetInfo()
+        // cep.focus()
+        // showMenssage("CAMPO CEP VAZIO!")
+        // resetInfo()
     }
     else {
         cep.focus()

@@ -5,7 +5,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-body{
+body {
     width: 100vw;
     height: 100vh;
     padding: 10px;
@@ -26,25 +26,17 @@ body form{
 }
 
 body form label{
+    display: flex;
+    gap: 8px;
     overflow: hidden;
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
-
+    text-align: center;
 }
 
-@media (max-width: 496px)
-{    
-    body form {
-        width: 320px;
-    }
-
-    body form label{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
-    }
+body form label span{
+    width: 100%;
 }
 
 body form input {
@@ -61,8 +53,8 @@ body button#reset {
     cursor: pointer;
     background-color: white;
     border: 0.5px solid rgba(0, 0, 0, 0.223);
-    font-size: 16px;
-    padding: 5px;
+    color: rgb(237, 47, 0);
+    font-size: 30px;
     border-radius: 5px;
     transition: all .2s linear;
 }
@@ -130,4 +122,19 @@ body #outputmenssage #menssage button{
 
 body #outputmenssage #menssage button:active {
     background-color: rgba(233, 27, 27, 0.573);
+}
+
+@media (max-width: 380px)
+{    
+    body form {
+
+        align-items: flex;
+    }
+
+    body form label{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
