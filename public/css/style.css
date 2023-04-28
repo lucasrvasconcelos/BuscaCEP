@@ -83,7 +83,7 @@ h3 {
 
 body #outputmenssage{
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
    
@@ -109,6 +109,7 @@ body #outputmenssage #menssage{
     width: 320px;
     padding: 10px;
     z-index: 100;
+    transform: translateY(-20px);
 }
 
 body #outputmenssage #menssage span {
