@@ -31,7 +31,12 @@ cep.addEventListener("keypress", (event) => {
 function formatCEP(respcepformat){
     if (respcepformat.length == 8) {
         setEndereco(respcepformat)
-    } else {
+    } else if(respcepformat.length == 0) {
+        cep.focus()
+        showMenssage("CAMPO CEP VAZIO!")
+        resetInfo()
+    }
+    else {
         cep.focus()
         showMenssage("CEP INVÁLIDO")
         resetInfo()
