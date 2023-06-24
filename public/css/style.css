@@ -14,7 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    background-color: rgb(132, 132, 132);
+    background-color: white;
 }
 
 body form{
