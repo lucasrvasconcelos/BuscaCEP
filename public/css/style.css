@@ -96,31 +96,15 @@ body button#reset {
     color: rgb(237, 47, 0);
     font-size: 30px;
     transition: all .2s linear;
-    padding-bottom: 7px;
     overflow: hidden;
 }
 
 body button#reset:hover{
     background-color:rgb(0, 0, 0);
     color: white;
-    animation: Reset .4s linear infinite;
+    background-color: rgb(237, 47, 0);
 }
 
-@keyframes Reset {
-    0% 
-    {
-        transform: rotateZ(0deg) scale(1);
-        
-    } 
-    50%
-    {
-        transform: rotateZ(180deg) scale(1.2)
-    }
-    100%
-    {
-        transform: rotateZ(360deg) scale(1);
-    }
-}
 
 h3 {
     text-align: center;
